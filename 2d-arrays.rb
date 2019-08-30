@@ -23,8 +23,8 @@ class Image
           ##puts "-------------------"
 
           if column_index == one_column && row_index == one_row
-            @image[row_index-1][column_index] = 1 if row_index > 0
-            @image[row_index+1][column_index] = 1 if row_index < 6
+            @image[row_index-1][column_index] = 1 if row_index >= 1
+            @image[row_index+1][column_index] = 1 if row_index < 6 - 1
             @image[row_index][column_index-1] = 1 if column_index > 0
             @image[row_index][column_index+1] = 1 if column_index < 3
 
@@ -66,11 +66,11 @@ end
 # find_ones = [[3,1]]
 
 image = Image.new([
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
   [1, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
   [0, 0, 0, 0]
 ])
 
