@@ -9,9 +9,13 @@ class Image
     @image.each do |row|
       puts row.join
     end
-  end
 
-  def blur
+  
+
+end
+
+  def blur(distance=1)
+    distance.times do
     ones = find_ones
     
     @image.each_with_index do |row, row_index|
@@ -24,7 +28,7 @@ class Image
 
           if column_index == one_column && row_index == one_row
             @image[row_index-1][column_index] = 1 if row_index >= 1
-            @image[row_index+1][column_index] = 1 if row_index < 6 - 1
+            @image[row_index+1][column_index] = 1 if row_index < 5
             @image[row_index][column_index-1] = 1 if column_index > 0
             @image[row_index][column_index+1] = 1 if column_index < 3
 
@@ -34,7 +38,7 @@ class Image
         # if it's a match, change the surrounding pixels
       end
     end 
-
+  end
     output_image
   end
   # iterate over the image rows and columns again
@@ -66,13 +70,13 @@ end
 # find_ones = [[3,1]]
 
 image = Image.new([
-  [1, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 1, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0]
 ])
 
  #image.output_image
-image.blur
+image.blur(2)
