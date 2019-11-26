@@ -8,10 +8,7 @@ class Image
   def output_image
     @image.each do |row|
       puts row.join
-    end
-
-  
-
+  end
 end
 
   def blur(distance=1)
